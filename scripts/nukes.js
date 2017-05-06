@@ -9,27 +9,27 @@ const cities = [
   },
   {
     cityName: 'Washington, D.C.',
-    loc: {lat: 38.904722, lon: -77.016389}
+    loc: {lat: 38.904722, lng: -77.016389}
   },
   {
     cityName: 'Los Angeles, CA',
-    loc: {lat: 34.05, lon: -118.25}
+    loc: {lat: 34.05, lng: -118.25}
   },
   {
     cityName: 'Austin, TX',
-    loc: {lat: 30.266667, lon: -97.733333}
+    loc: {lat: 30.266667, lng: -97.733333}
   },
   {
     cityName: 'Little Rock, AR',
-    loc: {lat: 34.736111, lon: -92.331111}
+    loc: {lat: 34.736111, lng: -92.331111}
   },
   {
     cityName: 'Honolulum HI',
-    loc: {lat: 21.3, lon: -157.816667}
+    loc: {lat: 21.3, lng: -157.816667}
   },
   {
     cityName: 'Seoul, South Korea',
-    loc: {lat: 37.566667, lon: 126.966667}
+    loc: {lat: 37.566667, lng: 126.966667}
   }
 ];
 
