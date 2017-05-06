@@ -66,7 +66,7 @@ body {
   font-size: 1.6rem;
 }
 
-.form-item span {
+.form-item p {
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -85,6 +85,6 @@ body {
   color: white;
 }
 
-.erupt-btn {
+.launch-btn {
   background-color: #C03221
 }

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>VolcMap | Volcano Destruction Visualization</title>
+    <title>NUKEMAP Jr - NK Edition</title>
 
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/styles.css">
@@ -14,39 +14,43 @@
       </div>
       <div class="sidebar">
         <header>
-          <h1>VolcMap</h1>
+          <h1>NUKEMAP Jr.</h1>
           <h5>
-            An interactive map to show the destructiveness
-            of the most powerful volcano eruptions on Earth
+            An interactive map to visualize the North Korean nuclear threat.
           </h5>
         </header>
         <hr>
         <section class="form-contain">
           <form>
-            <div class="form-item volc-select">
-            <span>First, Choose a Volcano</span>
-            <select id="preset-volcs" name="volcanoes">
-              <option value="default">-Choose a volcano...</option>
-            </select>
+            <div class="form-item city-select">
+              <p>
+                These are locations that North Korea has threatend to bomb.
+              </p>
+              <select id="preset-cities" name="cities">
+                <option value="default">Select a city or drag the marker somewhere</option>
+              </select>
             </div>
             <hr>
-            <div class="form-item city-select">
-              <span>Now, select a predefined city, or leave it default!</span>
-              <select id="preset-cities" name="cities">
-                <option value="default">Keep it default or drag it somewhere</option>
+            <div class="form-item nuke-select">
+              <p>
+                Below are the 5 different nukes that North Korea has tested.
+                Select a nuke to see it's potential impact.
+              </p>
+              <select id="preset-nukes" name="volcanoes">
+                <option value="default">-Choose a nuke...</option>
               </select>
             </div>
             <hr>
             <div class="form-item erupt-option-select">
-              <span>Other options</span>
+              <p>Other options</p>
               <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
               <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
               <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
             </div>
             <hr>
             <div class="form-item button-div">
-              <span>Click the Erupt Button Below</span>
-              <button class="btn erupt-btn">Erupt</button>
+              <p>Click the Erupt Button Below</p>
+              <button class="btn launch-btn">Erupt</button>
               <button class="btn reset-btn">Reset</button>
             </div>
           </form>
@@ -55,6 +59,7 @@
     </div>
 
     <!--SCRIPTS-->
+    <script src="./scripts/nukes.js"></script>
     <script src="./scripts/script.js"></script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdFQL-kk7ffDIlUzql7dUeFroKJz5foE&callback=initMap">
