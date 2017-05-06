@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>VolcMap | Volcano Destruction Visualization</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="map-contain">
+        <div id="map"></div>
+      </div>
+      <div class="sidebar">
+        <header>
+          <h1>VolcMap</h1>
+          <h5>
+            An interactive map to show the destructiveness
+            of the most powerful volcano eruptions on Earth
+          </h5>
+        </header>
+        <hr>
+        <section class="form-contain">
+          <form>
+            <div class="form-item volc-select">
+            <span>First, Choose a Volcano</span>
+            <select id="preset-volcs" name="volcanoes">
+              <option value="default">-Choose a volcano...</option>
+            </select>
+            </div>
+            <hr>
+            <div class="form-item city-select">
+              <span>Now, select a predefined city, or leave it default!</span>
+              <select id="preset-cities" name="cities">
+                <option value="default">Keep it default or drag it somewhere</option>
+              </select>
+            </div>
+            <hr>
+            <div class="form-item erupt-option-select">
+              <span>Other options</span>
+              <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
+              <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
+              <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
+            </div>
+            <hr>
+            <div class="form-item button-div">
+              <span>Click the Erupt Button Below</span>
+              <button class="btn erupt-btn">Erupt</button>
+              <button class="btn reset-btn">Reset</button>
+            </div>
+          </form>
+        </section>
+      </div><!--/.sidebar-->
+    </div>
+
+    <!--SCRIPTS-->
+    <script src="./scripts/script.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdFQL-kk7ffDIlUzql7dUeFroKJz5foE&callback=initMap">
+    </script>
+  </body>
+</html>
