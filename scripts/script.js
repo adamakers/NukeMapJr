@@ -1,7 +1,8 @@
 
 
 function initMap() {
-  //Certain coords.
+  let circleRadius;
+  let nukeCircle;
   let mapCenter = {lat: 38.8977, lng: -77.0365};
   //Map settings
   let mapSettings = {
@@ -16,10 +17,6 @@ function initMap() {
     animation: google.maps.Animation.DROP,
     draggable: true
   });
-
-  //circle
-  let circleRadius;
-  let nukeCircle;
 
   function fillForms(arr, formId, fn) {
     const ele = document.querySelector(formId);
@@ -40,6 +37,11 @@ function initMap() {
     mapCenter = city.loc;
     marker.setPosition(mapCenter);
     map.setCenter(mapCenter);
+    if (nukeCircle) {
+      nukeCircle.setCenter(mapCenter);
+    } else {
+      console.log('nope')
+    }
   }
 
   //set the nuke size.
@@ -48,7 +50,7 @@ function initMap() {
     const nukeIdx = this.value;
     const nuke = nukes[nukeIdx];
     const kt = nuke.kt;
-    circleRadius = kt * 100;
+    circleRadius = kt * 1000;
   }
 
   //launch cb.  creates circle and places at foot of marker
@@ -61,7 +63,7 @@ function initMap() {
       fillOpacity: 0.35,
       map: map,
       center: mapCenter,
-      radius: 300
+      radius: 12000
     });
   }
 
@@ -70,10 +72,18 @@ function initMap() {
   fillForms(cities, '#preset-cities', citySelectCB);
   fillForms(nukes, '#preset-nukes', nukeSelectCB);
 
+
+  //EVENT LISTENERS
   const launchBtn = document.querySelector('.launch-btn');
-
   launchBtn.addEventListener('click', launchCB);
-
+  
+  marker.addListener('drag', () => {
+    if (nukeCircle) {
+      const markerLat = marker.getPosition().lat();
+      const markerLng = marker.getPosition().lng();
+      nukeCircle.setCenter({lat: markerLat, lng: markerLng});
+    }
+  });
 
 }// initMap
 
