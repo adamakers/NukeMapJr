@@ -24,7 +24,7 @@ const cities = [
     loc: {lat: 34.736111, lng: -92.331111}
   },
   {
-    cityName: 'Honolulum HI',
+    cityName: 'Honolulu, HI',
     loc: {lat: 21.3, lng: -157.816667}
   },
   {

@@ -65,6 +65,7 @@ function initMap() {
       center: mapCenter,
       radius: 12000
     });
+    nukeCircle.bindTo('center', marker, 'position');
   }
 
   //need event for when marker is dragged to let circile follow
@@ -76,14 +77,6 @@ function initMap() {
   //EVENT LISTENERS
   const launchBtn = document.querySelector('.launch-btn');
   launchBtn.addEventListener('click', launchCB);
-  
-  marker.addListener('drag', () => {
-    if (nukeCircle) {
-      const markerLat = marker.getPosition().lat();
-      const markerLng = marker.getPosition().lng();
-      nukeCircle.setCenter({lat: markerLat, lng: markerLng});
-    }
-  });
 
 }// initMap
 
@@ -96,4 +89,16 @@ function initMap() {
 
 
 
+
+  // how I previously updated the circle location when marker dragged, however, .bindTo() is the better solution
+  //bindTo('center', marker, 'position'); where 'center' is the property of the circle we want to update, marker is
+  //what we want to bind item to and 'position' is the property of marker that we want to bind to the circles 'center'
+
+  // marker.addListener('drag', () => {
+  //   if (nukeCircle) {
+  //     const markerLat = marker.getPosition().lat();
+  //     const markerLng = marker.getPosition().lng();
+  //     nukeCircle.setCenter({lat: markerLat, lng: markerLng});
+  //   }
+  // });
 
