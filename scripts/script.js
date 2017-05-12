@@ -50,6 +50,7 @@ function initMap() {
       console.log('no nuke selected');
       return;
     };
+    
     if (damageCircles) return;
     damageCircles = [];
     const allNukes = nukeObject.nukeOrder;
@@ -73,6 +74,7 @@ function initMap() {
     });
   }
 
+  //Reset btn to clear circles
   function resetCB() {
     if (!damageCircles) return;
     damageCircles.forEach( circle => {
@@ -81,6 +83,7 @@ function initMap() {
     damageCircles = undefined;
   }
 
+  //Form filling.  Scalable
   fillForms(nukeObject.cities, '#preset-cities', citySelectCB);
   fillForms(nukeObject.nukes, '#preset-nukes', nukeSelectCB);
 
@@ -89,8 +92,6 @@ function initMap() {
   const resetBtn = document.querySelector('.reset-btn');
   launchBtn.addEventListener('click', launchCB);
   resetBtn.addEventListener('click', resetCB);
-
-
 
 }// initMap
 
