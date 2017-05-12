@@ -1,5 +1,5 @@
 
-let nukeObject = { 
+let nukeObject = {
   cities: [
     {
       cityName: 'Colorado Springs, CO',
@@ -37,18 +37,11 @@ let nukeObject = {
       date: 'Oct 9, 2006',
       kt: 0.7,
       damage: {
-        radrad: 1940,
-        thermrad: 450,
-        airblast5: 410,
+        fireball: 70,
         airblast20: 190,
-        fireball: 70
-
-
-        // fireball: 70,
-        // airblast20: 190,
-        // airblast5: 410,
-        // thermrad: 450,
-        // radrad: 1940
+        airblast5: 410,
+        thermrad: 450,
+        radrad: 1940
       }
     },
     {
@@ -101,7 +94,9 @@ let nukeObject = {
     }
   ],
 
+  nukeOrder: ['radrad', 'thermrad', 'airblast5', 'airblast20', 'fireball'],
   circleColors: ['#e74c3c', '#d35400', '#e67e22', '#f39c12', '#f1c40f']
+
 }
 
 //DC, LA, Austin,

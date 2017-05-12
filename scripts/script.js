@@ -1,17 +1,7 @@
 
 function initMap() {
-  //set circle variables
-  //let nukeCircle;
-  var myColors = ['#e74c3c', '#d35400', '#e67e22', '#f39c12', '#f1c40f'];
-  // let fireball;
-  // let airblast20;
-  // let airblast5;
-  // let thermrad;
-  // let radrad;
-
+  let damageCircles;
   let nukeSelect;
-
-
   let mapCenter = {lat: 38.8977, lng: -77.0365};
   //Map settings
   let mapSettings = {
@@ -56,25 +46,39 @@ function initMap() {
 
   //launch cb.  creates circle and places at foot of marker
   function launchCB() {
-    if (!damageCircle) {
-      var idx = 0;
-      for (var blastType in nukeSelect.damage) {
-        var damageCircle = new google.maps.Circle({
-          strokeColor: myColors[idx],
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: myColors[idx],
-          fillOpacity: 0.35,
-          map: map,
-          center: mapCenter,
-          radius: nukeSelect.damage[blastType]
-        });
-        damageCircle.bindTo('center', marker, 'position');
-        console.log(nukeSelect.damage[blastType]);
-        console.log(myColors[idx]);
-        idx++;
-      }
-    } 
+    if (!nukeSelect) {
+      console.log('no nuke selected');
+      return;
+    };
+    if (damageCircles) return;
+    damageCircles = [];
+    const allNukes = nukeObject.nukeOrder;
+    allNukes.forEach( prop => {
+      const idx = allNukes.indexOf(prop);
+      const dmgRadius = nukeSelect.damage[prop]; //find chosen nuke, get damage
+      const circColor = nukeObject.circleColors[idx];
+      console.log(dmgRadius);
+      circle = new google.maps.Circle({
+        strokeColor: circColor,
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: circColor,
+        fillOpacity: 0.35,
+        map: map,
+        center: mapCenter,
+        radius: dmgRadius
+      });
+      circle.bindTo('center', marker, 'position') ;//end obj
+      damageCircles.push(circle);
+    });
+  }
+
+  function resetCB() {
+    if (!damageCircles) return;
+    damageCircles.forEach( circle => {
+      circle.setMap(null);
+    });
+    damageCircles = undefined;
   }
 
   fillForms(nukeObject.cities, '#preset-cities', citySelectCB);
@@ -82,7 +86,11 @@ function initMap() {
 
   //EVENT LISTENERS
   const launchBtn = document.querySelector('.launch-btn');
+  const resetBtn = document.querySelector('.reset-btn');
   launchBtn.addEventListener('click', launchCB);
+  resetBtn.addEventListener('click', resetCB);
+
+
 
 }// initMap
 
