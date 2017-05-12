@@ -1,5 +1,4 @@
 
-
 function initMap() {
   let circleRadius;
   let nukeCircle;
@@ -22,57 +21,52 @@ function initMap() {
     const ele = document.querySelector(formId);
     arr.forEach( (item, idx) => {
       let strInp = item.cityName ? item.cityName : item.date;
-      let itemStr = `<option value="${idx}">${strInp}</option>`;
+      const itemStr = `<option value="${idx}">${strInp}</option>`;
       ele.insertAdjacentHTML('beforeend', itemStr);
     });
-
-    ele.addEventListener('input', fn)
+    ele.addEventListener('input', fn);
+    
   }
 
   //change the location of the marker to desired city.
   function citySelectCB() {
     const cityIdx = this.value;
-    const city = cities[cityIdx];
+    const city = nukeObject.cities[cityIdx];
     //const coords = city.loc;
     mapCenter = city.loc;
     marker.setPosition(mapCenter);
     map.setCenter(mapCenter);
-    if (nukeCircle) {
-      nukeCircle.setCenter(mapCenter);
-    } else {
-      console.log('nope')
-    }
   }
 
   //set the nuke size.
   function nukeSelectCB() {
     //grab nuke index/formval
-    const nukeIdx = this.value;
-    const nuke = nukes[nukeIdx];
-    const kt = nuke.kt;
-    circleRadius = kt * 1000;
+    const nukeIdx = parseInt(this.value);
+    const nuke = nukeObject.nukes[nukeIdx];
+    //const kt = nuke.kt;
+    //circleRadius = kt * 1000;
+    console.log(nuke.fireball);
   }
 
   //launch cb.  creates circle and places at foot of marker
   function launchCB() {
-    nukeCircle = new google.maps.Circle({
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
-      map: map,
-      center: mapCenter,
-      radius: 12000
-    });
-    nukeCircle.bindTo('center', marker, 'position');
+    if (!nukeCircle) {
+      nukeCircle = new google.maps.Circle({
+        strokeColor: '#000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#000',
+        fillOpacity: 0.35,
+        map: map,
+        center: mapCenter,
+        radius: 12000
+      });
+      nukeCircle.bindTo('center', marker, 'position');
+    }
   }
 
-  //need event for when marker is dragged to let circile follow
-
-  fillForms(cities, '#preset-cities', citySelectCB);
-  fillForms(nukes, '#preset-nukes', nukeSelectCB);
-
+  fillForms(nukeObject.cities, '#preset-cities', citySelectCB);
+  fillForms(nukeObject.nukes, '#preset-nukes', nukeSelectCB);
 
   //EVENT LISTENERS
   const launchBtn = document.querySelector('.launch-btn');
