@@ -36,55 +36,72 @@ let nukeObject = {
       nukeId: 1,
       date: 'Oct 9, 2006',
       kt: 0.7,
-      fireball: 70,
-      airblast20: 190,
-      airblast5: 410,
-      thermrad: 450,
-      radrad: 1940
+      damage: {
+        radrad: 1940,
+        thermrad: 450,
+        airblast5: 410,
+        airblast20: 190,
+        fireball: 70
+
+
+        // fireball: 70,
+        // airblast20: 190,
+        // airblast5: 410,
+        // thermrad: 450,
+        // radrad: 1940
+      }
     },
     {
       nukeId: 2,
       date: 'May 25, 2009',
       kt: 5.4,
-      fireball: 160,
-      airblast20: 380,
-      airblast5: 800,
-      thermrad: 1070,
-      radrad: 1120
+      damage: {
+        fireball: 160,
+        airblast20: 380,
+        airblast5: 800,
+        thermrad: 1070,
+        radrad: 1120
+      }
     },
     {
       nukeId: 3,
       date: 'Feb 12, 2013',
       kt: 14,
-      fireball: 230,
-      airblast20: 520,
-      airblast5: 1100,
-      thermrad: 1320,
-      radrad: 1630
+      damage: {
+        fireball: 230,
+        airblast20: 520,
+        airblast5: 1100,
+        thermrad: 1320,
+        radrad: 1630
+      }
     },
     {
       nukeId: 4,
       date: 'Jan 6, 2016',
       kt: 10,
-      fireball: 200,
-      airblast20: 470,
-      airblast5: 990,
-      thermrad: 1250,
-      radrad: 1410
+      damage: {
+        fireball: 200,
+        airblast20: 470,
+        airblast5: 990,
+        thermrad: 1250,
+        radrad: 1410
+      }
     },
     {
       nukeId: 5,
       date: 'Sept 9, 2016',
       kt: 25,
-      fireball: 290,
-      airblast20: 640,
-      airblast5: 1340,
-      thermrad: 1460,
-      radrad: 1940
+      damage: {
+        fireball: 290,
+        airblast20: 640,
+        airblast5: 1340,
+        thermrad: 1460,
+        radrad: 1940
+      }
     }
   ],
 
-  circleColors: []
+  circleColors: ['#e74c3c', '#d35400', '#e67e22', '#f39c12', '#f1c40f']
 }
 
 //DC, LA, Austin,

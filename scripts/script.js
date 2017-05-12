@@ -1,7 +1,17 @@
 
 function initMap() {
-  let circleRadius;
-  let nukeCircle;
+  //set circle variables
+  //let nukeCircle;
+  var myColors = ['#e74c3c', '#d35400', '#e67e22', '#f39c12', '#f1c40f'];
+  // let fireball;
+  // let airblast20;
+  // let airblast5;
+  // let thermrad;
+  // let radrad;
+
+  let nukeSelect;
+
+
   let mapCenter = {lat: 38.8977, lng: -77.0365};
   //Map settings
   let mapSettings = {
@@ -25,7 +35,6 @@ function initMap() {
       ele.insertAdjacentHTML('beforeend', itemStr);
     });
     ele.addEventListener('input', fn);
-    
   }
 
   //change the location of the marker to desired city.
@@ -42,27 +51,30 @@ function initMap() {
   function nukeSelectCB() {
     //grab nuke index/formval
     const nukeIdx = parseInt(this.value);
-    const nuke = nukeObject.nukes[nukeIdx];
-    //const kt = nuke.kt;
-    //circleRadius = kt * 1000;
-    console.log(nuke.fireball);
+    nukeSelect = nukeObject.nukes[nukeIdx];
   }
 
   //launch cb.  creates circle and places at foot of marker
   function launchCB() {
-    if (!nukeCircle) {
-      nukeCircle = new google.maps.Circle({
-        strokeColor: '#000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#000',
-        fillOpacity: 0.35,
-        map: map,
-        center: mapCenter,
-        radius: 12000
-      });
-      nukeCircle.bindTo('center', marker, 'position');
-    }
+    if (!damageCircle) {
+      var idx = 0;
+      for (var blastType in nukeSelect.damage) {
+        var damageCircle = new google.maps.Circle({
+          strokeColor: myColors[idx],
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: myColors[idx],
+          fillOpacity: 0.35,
+          map: map,
+          center: mapCenter,
+          radius: nukeSelect.damage[blastType]
+        });
+        damageCircle.bindTo('center', marker, 'position');
+        console.log(nukeSelect.damage[blastType]);
+        console.log(myColors[idx]);
+        idx++;
+      }
+    } 
   }
 
   fillForms(nukeObject.cities, '#preset-cities', citySelectCB);
