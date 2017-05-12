@@ -31,7 +31,6 @@ function initMap() {
   function citySelectCB() {
     const cityIdx = this.value;
     const city = nukeObject.cities[cityIdx];
-    //const coords = city.loc;
     mapCenter = city.loc;
     marker.setPosition(mapCenter);
     map.setCenter(mapCenter);
