@@ -64,10 +64,10 @@ function initMap() {
     damageCircles = [];
     const allNukes = nukeObject.nukeOrder;
     allNukes.forEach( prop => {
+      //create a circle for each damage property.
       const idx = allNukes.indexOf(prop);
       const dmgRadius = nukeSelect.damage[prop]; //find chosen nuke, get damage
       const circColor = nukeObject.circleColors[idx];
-      console.log(dmgRadius);
       circle = new google.maps.Circle({
         strokeColor: circColor,
         strokeOpacity: 0.8,
@@ -81,6 +81,8 @@ function initMap() {
       circle.bindTo('center', marker, 'position') ;//end obj
       damageCircles.push(circle);
     });
+    let firstCircle = damageCircles[0];
+    map.fitBounds(firstCircle.getBounds());
   }
 
   //Reset btn to clear circles
