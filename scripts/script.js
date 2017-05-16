@@ -60,7 +60,10 @@ function initMap() {
       return;
     };
     
-    if (damageCircles) return;
+    if (damageCircles) {
+      resetCB();
+    };
+    
     damageCircles = [];
     const allNukes = nukeObject.nukeOrder;
     allNukes.forEach( prop => {
