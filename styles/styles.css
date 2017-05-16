@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans');
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
@@ -69,6 +74,32 @@ body {
 .form-item p {
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.locate-me-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.nuke-warning {
+  position: relative;
+  left: 20px;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.nuke-warning:before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid red;
+  position: absolute;
+  left: -7px;
+  top: 7px;
 }
 
 .button-div {

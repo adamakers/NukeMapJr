@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://use.fontawesome.com/2692d542cb.js"></script>
   </head>
   <body>
     <div class="container">
@@ -22,16 +23,21 @@
         <hr>
         <section class="form-contain">
           <form>
-            <div class="form-item city-select">
+            <section class="form-item city-select">
               <p>
                 These are locations that North Korea has threatend to bomb.
               </p>
               <select id="preset-cities" name="cities">
                 <option value="default">Select a city or drag the marker somewhere</option>
               </select>
-            </div>
+              <p>Or use your location!</p>
+              <button class="locate-me-button" type="button">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i><span>Locate Me!</span>
+              </button>
+            </section>
+            
             <hr>
-            <div class="form-item nuke-select">
+            <section class="form-item nuke-select">
               <p>
                 Below are the 5 different nukes that North Korea has tested.
                 Select a nuke to see it's potential impact.
@@ -39,20 +45,14 @@
               <select id="preset-nukes" name="volcanoes">
                 <option value="default">-Choose a nuke...</option>
               </select>
-            </div>
+              <span class="nuke-warning">Please Select a nuke!</span>
+            </section>
             <hr>
-            <!--<div class="form-item erupt-option-select">
-              <p>Other options</p>
-              <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
-              <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
-              <input type="checkbox" name="vehicle1" value="Bike"> This is an option <br>
-            </div>
-            <hr>-->
-            <div class="form-item button-div">
+            <section class="form-item button-div">
               <p>Click the Erupt Button Below</p>
               <button type="button" class="btn launch-btn">Launch</button>
               <button type="button" class="btn reset-btn">Reset</button>
-            </div>
+            </section>
           </form>
         </section>
       </div><!--/.sidebar-->

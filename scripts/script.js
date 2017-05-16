@@ -1,5 +1,7 @@
 
 function initMap() {
+  const locateBtn = document.querySelector('.locate-me-button');
+
   let damageCircles;
   let nukeSelect;
   let mapCenter = {lat: 38.8977, lng: -77.0365};
@@ -17,14 +19,22 @@ function initMap() {
     draggable: true
   });
 
-  function fillForms(arr, formId, fn) {
-    const ele = document.querySelector(formId);
-    arr.forEach( (item, idx) => {
-      let strInp = item.cityName ? item.cityName : item.date;
-      const itemStr = `<option value="${idx}">${strInp}</option>`;
-      ele.insertAdjacentHTML('beforeend', itemStr);
+  if (!"geolocation" in navigator) {
+    locateBtn.disabled = true;
+    //if no geolocation, disable btn and change css
+  } else {
+    locateBtn.disabled = false;
+  }
+
+  //callback to grab the location of the user if they press locate me btn
+  function locationCB() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let lat = position.coords.latitude,
+          lng = position.coords.longitude;
+      let geoLocCoords = {lat: lat, lng: lng};
+       marker.setPosition(geoLocCoords);
+       map.setCenter(geoLocCoords);
     });
-    ele.addEventListener('input', fn);
   }
 
   //change the location of the marker to desired city.
@@ -82,13 +92,27 @@ function initMap() {
     damageCircles = undefined;
   }
 
-  //Form filling.  Scalable
+  //fills in select inputs and adds eventListeners to them
+  function fillForms(arr, formId, fn) {
+    const ele = document.querySelector(formId);
+    arr.forEach( (item, idx) => {
+      let strInp = item.cityName ? item.cityName : item.date + ' | ' + item.kt + ' kt';
+      const itemStr = `<option value="${idx}">${strInp}</option>`;
+      ele.insertAdjacentHTML('beforeend', itemStr);
+    });
+    ele.addEventListener('input', fn);
+  }
+
+
+  //Form filling.  Will fill in items from nukes.js file so should be able to add items to obj and it will easily adapt
   fillForms(nukeObject.cities, '#preset-cities', citySelectCB);
   fillForms(nukeObject.nukes, '#preset-nukes', nukeSelectCB);
 
   //EVENT LISTENERS
   const launchBtn = document.querySelector('.launch-btn');
   const resetBtn = document.querySelector('.reset-btn');
+
+  locateBtn.addEventListener('click', locationCB);
   launchBtn.addEventListener('click', launchCB);
   resetBtn.addEventListener('click', resetCB);
 
