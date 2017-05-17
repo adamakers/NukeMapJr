@@ -63,7 +63,7 @@ function initMap() {
     if (damageCircles) {
       resetCB();
     };
-    
+
     damageCircles = [];
     const allNukes = nukeObject.nukeOrder;
     allNukes.forEach( prop => {
@@ -76,7 +76,7 @@ function initMap() {
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: circColor,
-        fillOpacity: 0.35,
+        fillOpacity: 0.3,
         map: map,
         center: mapCenter,
         radius: dmgRadius

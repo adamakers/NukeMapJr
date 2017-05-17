@@ -41,7 +41,7 @@ let nukeObject = {
         airblast20: 190,
         airblast5: 410,
         thermrad: 450,
-        radrad: 1940
+        radrad: 790
       }
     },
     {
@@ -95,7 +95,7 @@ let nukeObject = {
   ],
 
   nukeOrder: ['radrad', 'thermrad', 'airblast5', 'airblast20', 'fireball'],
-  circleColors: ['#e74c3c', '#d35400', '#e67e22', '#f39c12', '#f1c40f']
+  circleColors: ['#f39c12', '#95a5a6', '#27ae60', '#1abc9c', '#e74c3c']
 
 }
 
