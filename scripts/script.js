@@ -8,7 +8,10 @@ function initMap() {
   //Map settings
   let mapSettings = {
     zoom: 12,
-    center: mapCenter
+    center: mapCenter,
+    mapTypeControlOptions: {
+      position: google.maps.ControlPosition.BOTTOM_LEFT
+    }
   };
 
   let map = new google.maps.Map(document.getElementById('map'), mapSettings);
