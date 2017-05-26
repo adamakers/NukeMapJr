@@ -43,7 +43,7 @@ header {
 header h1 {
   margin: 0;
   display: inline-block;
-  font-size: 2.2rem;
+  font-size: 3rem;
 }
 
 header h5 {
@@ -51,7 +51,7 @@ header h5 {
 }
 
 header span {
-  font-size: 1.4rem;
+  font-size: 2.6rem;
   cursor: pointer;
 }
 
@@ -61,7 +61,7 @@ header span {
   height: 100%;
   position: absolute;
   left: 0;
-  top: 65px;
+  top: 74px;
   bottom: 0;
   overflow-x: hidden;
   z-index: 999;
@@ -70,8 +70,27 @@ header span {
   white-space: nowrap;
 }
 
+.sidebar section {
+  padding: 2rem 1rem;
+  font-size: 1.6rem;
+  color: white;
+}
+
+.sidebar .btn {
+  border: 1px solid #588C60;
+  padding: 10px 15px;
+  color: white;
+  background-color: #6BAA75;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar .btn .fa {
+  padding-right: 1rem;
+}
+
 .sidebar.active {
-  width: 300px;
+  width: auto;
   opacity: 1;
 }
 
@@ -81,7 +100,7 @@ header span {
 }
 
 .map-contain {
-  height: calc(100% - 65px);
+  height: calc(100% - 74px);
 }
 
 #map {

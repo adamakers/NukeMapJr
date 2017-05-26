@@ -43,13 +43,13 @@ header {
   h1 {
     margin: 0;
     display: inline-block;
-    font-size: 2.2rem;
+    font-size: 3rem;
   }
   h5 {
     display: none;
   }
   span {
-    font-size: 1.4rem;
+    font-size: 2.6rem;
     cursor: pointer;
   }
 }
@@ -67,10 +67,28 @@ header {
   transition: all 0.5s ease-in;
   opacity: 0;
   white-space: nowrap;
+  //NESTED ELEMENTS
+  section {
+    padding: 2rem 1rem;
+    font-size: 1.6rem;
+    color: white;
+  }
+  .btn {
+    border: 1px solid #588C60;
+    padding: 10px 15px;
+    color: white;
+    background-color: $buttons;
+    border-radius: 5px;
+    cursor: pointer;
+    //fontawesome icon
+    .fa {
+      padding-right: 1rem;
+    }
+  }
 }
 
 .sidebar.active {
-  width: 300px;
+  width: auto;
   opacity: 1;
 }
 
