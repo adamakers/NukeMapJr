@@ -27,7 +27,7 @@ html {
 
 header {
   color: #fff;
-  padding: 4rem;
+  padding: 8rem;
   background-color: #3772FF;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -61,7 +61,7 @@ header span {
   height: 100%;
   position: absolute;
   left: 0;
-  top: 119px;
+  top: 199px;
   bottom: 0;
   overflow-x: hidden;
   z-index: 999;
@@ -100,7 +100,7 @@ header span {
 }
 
 .map-contain {
-  height: calc(100% - 119px);
+  height: calc(100% - 199px);
 }
 
 #map {
