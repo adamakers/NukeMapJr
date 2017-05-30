@@ -3,8 +3,6 @@
 @import "variables";
 @import "mixins";
 
-
-
 *,
 *::before,
 *::after {
@@ -91,8 +89,31 @@ header {
     .fa {
       padding-right: 1rem;
     }
+  }//.btn
+  .nuke-warning {
+    padding: 5px 10px;
+    position: relative;
+    left: 2.5rem;
+    top: 2px;
+    background-color: #F64747;
+    border-radius: 7px;
+  }//.nuke-warning
+  .nuke-warning::before {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #F64747;
+    position: absolute;
+    left: -15px;
+    top: 11px;
   }
-}
+  .nuke-warning.hidden {
+    display: none;
+  }
+
+}//.sidebar
 
 .sidebar.active {
   width: auto;
