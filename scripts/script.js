@@ -1,3 +1,8 @@
+const launchBtn = document.querySelector('.launch-btn');
+const resetBtn = document.querySelector('.reset-btn');
+const hamburger = document.querySelector('.menu-btn');
+const sidebar = document.querySelector('.sidebar');
+const presetNukes = document.querySelector('.preset-nukes');
 
 function initMap() {
   const locateBtn = document.querySelector('.locate-me-button');
@@ -58,10 +63,17 @@ function initMap() {
 
   //launch cb.  creates circle and places at foot of marker
   function launchCB() {
+    const errorBox = document.querySelector('.nuke-warning');
+    //if no nuke selected, stop fn and 
     if (!nukeSelect) {
-      console.log('no nuke selected');
+      errorBox.classList.remove('hidden');
       return;
     };
+
+    //if error box is present, remove it
+    if ( !errorBox.classList.contains('hidden') ) {
+      errorBox.classList.add('hidden');
+    }
     
     if (damageCircles) {
       resetCB();
@@ -89,6 +101,8 @@ function initMap() {
     });
     let firstCircle = damageCircles[0];
     map.fitBounds(firstCircle.getBounds());
+
+    sidebar.classList.remove('active');
   }
 
   //Reset btn to clear circles
@@ -117,8 +131,7 @@ function initMap() {
   fillForms(nukeObject.nukes, '#preset-nukes', nukeSelectCB);
 
   //EVENT LISTENERS
-  const launchBtn = document.querySelector('.launch-btn');
-  const resetBtn = document.querySelector('.reset-btn');
+  
 
   locateBtn.addEventListener('click', locationCB);
   launchBtn.addEventListener('click', launchCB);
@@ -133,8 +146,9 @@ function initMap() {
 //////////////////////////////////////
 //JS INTERACTION
 
-const hamburger = document.querySelector('.menu-btn');
-const sidebar = document.querySelector('.sidebar');
+
+
+
 
 //Sidebar menu
 hamburger.addEventListener('click', () => {

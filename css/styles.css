@@ -61,7 +61,7 @@ header span {
 
 .sidebar {
   height: calc(100% - 159px);
-  background-color: #77878B;
+  background-color: rgba(119, 135, 139, 0.8);
   width: 0px;
   position: absolute;
   left: 0;
@@ -123,7 +123,7 @@ header span {
   border-right: 15px solid #F64747;
   position: absolute;
   left: -15px;
-  top: 11px;
+  top: 9px;
 }
 
 .sidebar .nuke-warning.hidden {
