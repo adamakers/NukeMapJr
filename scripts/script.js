@@ -1,5 +1,6 @@
 const launchBtn = document.querySelector('.launch-btn');
 const resetBtn = document.querySelector('.reset-btn');
+const recenterBtn = document.querySelector('.recenter-btn');
 const hamburger = document.querySelector('.menu-btn');
 const sidebar = document.querySelector('.sidebar');
 const presetNukes = document.querySelector('.preset-nukes');
@@ -114,6 +115,11 @@ function initMap() {
     damageCircles = undefined;
   }
 
+  //Recenter after panning
+  function recenterCB() {
+    map.setCenter(marker.getPosition());
+  }
+
   //fills in select inputs and adds eventListeners to them
   function fillForms(arr, formId, fn) {
     const ele = document.querySelector(formId);
@@ -136,6 +142,8 @@ function initMap() {
   locateBtn.addEventListener('click', locationCB);
   launchBtn.addEventListener('click', launchCB);
   resetBtn.addEventListener('click', resetCB);
+  recenterBtn.addEventListener('click', recenterCB);
+
 
 }// initMap
 
