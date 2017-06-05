@@ -129,6 +129,23 @@ function initMap() {
 
 
 
+//////////////////////////////////////
+//////////////////////////////////////
+//JS INTERACTION
+
+const hamburger = document.querySelector('.menu-btn');
+const sidebar = document.querySelector('.sidebar');
+
+//Sidebar menu
+hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+
+
+
+
+
 
 
 

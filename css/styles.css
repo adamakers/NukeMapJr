@@ -92,6 +92,7 @@ header span {
   background-color: #6BAA75;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .sidebar .btn .fa {
@@ -124,7 +125,7 @@ header span {
 }
 
 .sidebar.active {
-  width: auto;
+  width: 50%;
   opacity: 1;
 }
 

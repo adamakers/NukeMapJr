@@ -85,6 +85,7 @@ header {
     background-color: $buttons;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 1rem;
     //fontawesome icon
     .fa {
       padding-right: 1rem;
@@ -116,7 +117,7 @@ header {
 }//.sidebar
 
 .sidebar.active {
-  width: auto;
+  width: 50%;
   opacity: 1;
 }
 
