@@ -24,6 +24,58 @@ html {
   font-family: 'Droid Sans', sans-serif;
 }
 
+.modal-outer {
+  background-color: $modalOuter;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+
+  span {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border-radius: 50%;
+
+  }
+  .fa-times {
+    font-size: 2rem;
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    vertical-align: center;
+    cursor: pointer;
+  }
+
+  .modal-inner {
+    background-color: $modalInner;
+    padding: 3rem;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    @include centerer;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  hr {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -177,3 +229,4 @@ header {
   width: 100%;
   height: 100%;
 }
+

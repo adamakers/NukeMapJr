@@ -19,6 +19,63 @@ html {
   font-family: 'Droid Sans', sans-serif;
 }
 
+.modal-outer {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+
+.modal-outer span {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 50%;
+}
+
+.modal-outer .fa-times {
+  font-size: 2rem;
+  display: inline-block;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: center;
+  cursor: pointer;
+}
+
+.modal-outer .modal-inner {
+  background-color: #ecf0f1;
+  padding: 3rem;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.modal-outer h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.modal-outer hr {
+  margin-bottom: 1rem;
+}
+
+.modal-outer p {
+  line-height: 1.6;
+}
+
 .container {
   position: relative;
   width: 100%;
